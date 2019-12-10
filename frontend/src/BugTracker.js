@@ -13,7 +13,7 @@ export default class BugTracker extends React.Component {
     return (
         <div className="App">
           <h2>Bug Tracker</h2>
-          <BugList bugs={this.state} />
+          <BugList bugList={this.state} />
         </div>
       );
     }
