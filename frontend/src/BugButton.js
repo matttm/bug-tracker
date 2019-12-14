@@ -1,19 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import BugForm from './BugForm';
 
 export default class BugButton extends React.Component {
     constructor(props) {
         super(props);
-        this.el = document.getElementById('root');
+        this.state = {
+            formIsVisible: false
+        }
+        this.root = document.getElementById('root');
     }
 
-    openForm = () => {
-        return 0;
+    toggleFormVisibility = () => {
+        this.setState({
+            formIsVisible: !this.state.formIsVisible
+        })
     }
 
     render() {
+        let isVisible = this.state.formIsVisible;
        return (
-            <button onClick={this.openForm} >Create Bug</button>
+           <div class="FormContainer">
+                <button onClick={this.toggleFormVisibility} >Create Bug</button>
+                {
+                    isVisible ?
+                        <BugForm toggleForm={this.toggleFormVisibility} />
+                        : null
+                }
+            </div>
        );
     }
 }
