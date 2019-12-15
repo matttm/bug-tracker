@@ -24,7 +24,9 @@ export default class BugButton extends React.Component {
                 <button onClick={this.toggleFormVisibility} >Create Bug</button>
                 {
                     isVisible ?
-                        <BugForm toggleForm={this.toggleFormVisibility} />
+                        <BugForm
+                            toggleForm={this.toggleFormVisibility}
+                        />
                         : null
                 }
             </div>
