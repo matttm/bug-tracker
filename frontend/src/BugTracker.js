@@ -1,8 +1,7 @@
 import React from 'react';
-import BugList from './BugList';
 import { getTestBugs } from './TestData';
 import './BugTracker.css';
-import BugButton from './BugButton';
+import BugManager from './BugManager';
 
 export default class BugTracker extends React.Component {
   constructor(props) {
@@ -20,8 +19,7 @@ export default class BugTracker extends React.Component {
     return (
         <div className="container">
           <h2>Bug Tracker</h2>
-          <BugButton />
-          <BugList bugList={this.state.bugList} />
+          <BugManager bugList={this.state.bugList} />
         </div>
       );
     }
