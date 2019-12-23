@@ -1,6 +1,6 @@
 import React from 'react';
-import { getTestBugs } from './TestData';
-import './BugTracker.css';
+import { getTestBugs } from '../TestData';
+import '../BugTracker.css';
 import BugManager from './BugManager';
 
 export default class BugTracker extends React.Component {

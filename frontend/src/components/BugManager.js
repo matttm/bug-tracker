@@ -1,4 +1,6 @@
 import React from 'react';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from "react-bootstrap/DropdownButton";
 import BugList from './BugList';
@@ -21,12 +23,16 @@ export default class BugManager extends React.Component {
     render() {
         return (
             <>
-            <button onClick={this.toggleFormVisibility} >Create Bug</button>
-            <DropdownButton id="dropdown-item-button" title="Filter">
-                <Dropdown.Item as="button" >Name</Dropdown.Item>
-                <Dropdown.Item as="button" >Date</Dropdown.Item>
-                <Dropdown.Item as="button" >Priority</Dropdown.Item>
-            </DropdownButton>
+            <div class="bugManager-toolbar">
+                <Button
+                    onClick={this.toggleFormVisibility} >Create Bug
+                </Button>
+                <DropdownButton id="dropdown-item-button" title="Filter">
+                    <Dropdown.Item as="button" >Name</Dropdown.Item>
+                    <Dropdown.Item as="button" >Date</Dropdown.Item>
+                    <Dropdown.Item as="button" >Priority</Dropdown.Item>
+                </DropdownButton>
+            </div>
             <BugList bugList={this.props.bugList} />
                 {
                     this.state.formIsVisible ?

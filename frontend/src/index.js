@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import BugTracker from './BugTracker';
+import BugTracker from './components/BugTracker';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<BugTracker />, document.getElementById('root'));
