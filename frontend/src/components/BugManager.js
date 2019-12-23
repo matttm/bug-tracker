@@ -23,11 +23,16 @@ export default class BugManager extends React.Component {
     render() {
         return (
             <>
-            <div class="bugManager-toolbar">
+            <div class="bug-manager-toolbar">
                 <Button
+                    size="sm"
                     onClick={this.toggleFormVisibility} >Create Bug
                 </Button>
-                <DropdownButton id="dropdown-item-button" title="Filter">
+                <DropdownButton
+                    size="sm"
+                    id="dropdown-item-button"
+                    title="Filter"
+                >
                     <Dropdown.Item as="button" >Name</Dropdown.Item>
                     <Dropdown.Item as="button" >Date</Dropdown.Item>
                     <Dropdown.Item as="button" >Priority</Dropdown.Item>

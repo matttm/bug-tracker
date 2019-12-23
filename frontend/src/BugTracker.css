@@ -8,7 +8,14 @@
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
+}
 
+.bug-manager-toolbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 40%;
 }
 
 .bug {
