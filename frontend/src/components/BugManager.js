@@ -14,6 +14,8 @@ export default class BugManager extends React.Component {
         }
     }
 
+    sortArray = (f) => this.props.bugList.sort(f);
+    
     toggleFormVisibility = () => {
         this.setState({
             formIsVisible: !this.state.formIsVisible
