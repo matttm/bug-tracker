@@ -1,8 +1,8 @@
 import React from 'react';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from "react-bootstrap/DropdownButton";
+import { sortFunctions } from '../helpers';
 import BugList from './BugList';
 import BugForm from './BugForm';
 
@@ -10,11 +10,12 @@ export default class BugManager extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            bugList: this.props.bugList,
             formIsVisible: false
         }
     }
 
-    sortArray = (f) => this.props.bugList.sort(f);
+    sortArray = (f) => this.setState( prevState => ({bugList: prevState.bugList.sort(f) }) );
     
     toggleFormVisibility = () => {
         this.setState({
@@ -25,7 +26,7 @@ export default class BugManager extends React.Component {
     render() {
         return (
             <>
-            <div class="bug-manager-toolbar">
+            <div className="bug-manager-toolbar">
                 <Button
                     size="sm"
                     onClick={this.toggleFormVisibility} >Create Bug
@@ -35,9 +36,15 @@ export default class BugManager extends React.Component {
                     id="dropdown-item-button"
                     title="Filter"
                 >
-                    <Dropdown.Item as="button" >Name</Dropdown.Item>
-                    <Dropdown.Item as="button" >Date</Dropdown.Item>
-                    <Dropdown.Item as="button" >Priority</Dropdown.Item>
+                    <Dropdown.Item
+                        as="button" onClick={() => this.sortArray(sortFunctions.title)}
+                    >Name</Dropdown.Item>
+                    <Dropdown.Item
+                        as="button" onClick={() => this.sortArray(sortFunctions.date)}
+                    >Date</Dropdown.Item>
+                    <Dropdown.Item
+                        as="button" onClick={() => this.sortArray(sortFunctions.priority)}
+                    >Priority</Dropdown.Item>
                 </DropdownButton>
             </div>
             <BugList bugList={this.props.bugList} />
