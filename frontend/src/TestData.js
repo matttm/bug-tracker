@@ -24,5 +24,21 @@ export function getTestBugs() {
             date: "11-11-19",
             reporter: "Matt Maloney"
         },
+        {
+            id: 4,
+            name: "Fix sorting capability",
+            desc: "React does not rerender when the bug list is sorted. Further investigating has to be done if this is the issue or the list isn't even being sorted.",
+            priority: 2,
+            date: "12-11-19",
+            reporter: "John Doe"
+        },
+        {
+            id: 5,
+            name: "Fix typos in comments",
+            desc: "There is a multiitude of typos in comments. Fix them.",
+            priority: 4,
+            date: "12-19-19",
+            reporter: "Ray Donavan"
+        },
     ];
 }
