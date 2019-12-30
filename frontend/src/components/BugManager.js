@@ -10,11 +10,15 @@ export default class BugManager extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            bugList: this.props.bugList,
+            bugList: [],
             formIsVisible: false
-        }
+        };
     }
 
+    componentDidMount() {
+        this.setState({bugList: this.props.bugList});
+    }
+    
     sortArray = (f) => this.setState( prevState => ({bugList: prevState.bugList.sort(f) }) );
     
     toggleFormVisibility = () => {
@@ -47,7 +51,7 @@ export default class BugManager extends React.Component {
                     >Priority</Dropdown.Item>
                 </DropdownButton>
             </div>
-            <BugList bugList={this.props.bugList} />
+            <BugList bugList={this.state.bugList} />
                 {
                     this.state.formIsVisible ?
                         <BugForm
