@@ -15,8 +15,8 @@ export default class BugManager extends React.Component {
         };
     }
 
-    componentDidMount() {
-        this.setState({bugList: this.props.bugList});
+    componentWillReceiveProps(props) {
+        this.setState({bugList: [ ...props.bugList ]});
     }
     
     sortArray = (f) => this.setState( prevState => ({bugList: prevState.bugList.sort(f) }) );
