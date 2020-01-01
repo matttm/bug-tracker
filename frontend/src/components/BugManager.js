@@ -41,7 +41,10 @@ export default class BugManager extends React.Component {
                     title="Filter"
                 >
                     <Dropdown.Item
-                        as="button" onClick={() => this.sortArray(sortFunctions.title)}
+                        as="button" onClick={() => this.sortArray(sortFunctions.id)}
+                    >ID</Dropdown.Item>
+                    <Dropdown.Item
+                        as="button" onClick={() => this.sortArray(sortFunctions.name)}
                     >Name</Dropdown.Item>
                     <Dropdown.Item
                         as="button" onClick={() => this.sortArray(sortFunctions.date)}

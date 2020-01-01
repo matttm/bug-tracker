@@ -1,5 +1,6 @@
 export var sortFunctions = {
-    date: (a, b) => a.date - b.date,
+    date: (a, b) => new Date(a.date) - new Date(b.date),
+    id: (a, b) => a.id - b.id,
     priority: (a, b) => a.priority -b.priority,
-    title: (a, b) => a.title - b.title
+    name: (a, b) => a.name.localeCompare(b.name)
 }
