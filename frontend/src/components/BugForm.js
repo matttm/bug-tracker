@@ -35,6 +35,9 @@ export default class BugForm extends React.Component {
                     className="form-close"
                     onClick={this.props.toggleForm}
                 >Close</button>
+                <button
+                    onClick={this.props.handleSubmit}
+                >Submit</button>
             </React.Fragment>
         );
         return ReactDOM.createPortal(form, this.el);

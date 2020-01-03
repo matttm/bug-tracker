@@ -15,11 +15,18 @@ export default class BugTracker extends React.Component {
     this.setState( { bugList: [...getTestBugs()] } );
   }
 
+  handleSubmit = (bug) => {
+    this.setState({bugList: [...this.state.bugList, bug] });
+  }
+
   render() {
     return (
         <div className="container">
           <h2>Bug Tracker</h2>
-          <BugManager bugList={this.state.bugList} />
+          <BugManager
+            bugList={this.state.bugList}
+            handleSubmit={this.handleSubmit}
+          />
         </div>
       );
     }

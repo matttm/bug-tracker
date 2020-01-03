@@ -59,6 +59,7 @@ export default class BugManager extends React.Component {
                     this.state.formIsVisible ?
                         <BugForm
                             toggleForm={this.toggleFormVisibility}
+                            handleSubmit={this.props.handleSubmit}
                         />
                         : null
                 }
