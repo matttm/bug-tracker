@@ -22,6 +22,8 @@ export default class BugForm extends React.Component {
     componentWillUnmount() {
         this.portalRoot.removeChild(this.el);
     }
+    
+    _handleSubmit = () => this.props.handleSubmit(...this.state);
 
     render() {
         let form = (
@@ -36,7 +38,7 @@ export default class BugForm extends React.Component {
                     onClick={this.props.toggleForm}
                 >Close</button>
                 <button
-                    onClick={this.props.handleSubmit}
+                    onClick={_handleSubmit}
                 >Submit</button>
             </React.Fragment>
         );
