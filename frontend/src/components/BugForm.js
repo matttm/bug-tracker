@@ -5,8 +5,10 @@ export default class BugForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: "Name of the problem",
+            id: 7,
+            name: "Name of the problem",
             desc: "Description",
+            date: "2020",
             priority: 1,
             reporter: "Reporter"
         };
@@ -23,7 +25,7 @@ export default class BugForm extends React.Component {
         this.portalRoot.removeChild(this.el);
     }
     
-    _handleSubmit = () => this.props.handleSubmit(...this.state);
+    _handleSubmit = () => this.props.handleSubmit({...this.state});
 
     render() {
         let form = (
@@ -38,7 +40,7 @@ export default class BugForm extends React.Component {
                     onClick={this.props.toggleForm}
                 >Close</button>
                 <button
-                    onClick={_handleSubmit}
+                    onClick={this._handleSubmit}
                 >Submit</button>
             </React.Fragment>
         );
