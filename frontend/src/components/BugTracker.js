@@ -16,7 +16,9 @@ export default class BugTracker extends React.Component {
   }
 
   handleSubmit = (bug) => {
-    this.setState({bugList: [...this.state.bugList, bug] });
+    const id = this.state.bugList.length + 1;
+    const date = new Date().toString();
+    this.setState({bugList: [...this.state.bugList, {id, date, ...bug}] });
   }
 
   render() {

@@ -5,10 +5,8 @@ export default class BugForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: 7,
             name: "Name of the problem",
             desc: "Description",
-            date: "2020",
             priority: 1,
             reporter: "Reporter"
         };
