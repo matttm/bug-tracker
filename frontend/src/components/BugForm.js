@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 export default class BugForm extends React.Component {
     constructor(props) {
@@ -33,10 +35,10 @@ export default class BugForm extends React.Component {
                     <input className="form-field" type="text" value={this.state.priority} onChange={this.onChangeText} />
                     <textarea className="form-field" type="text" value={this.state.desc} onChange={this.onChangeText} />
                 </div>
-                <button
-                    className="form-close"
-                    onClick={this.props.toggleForm}
-                >Close</button>
+                <FontAwesomeIcon
+                    icon={faTimesCircle}
+                    onClick={this.props.toggleForm}>
+                </FontAwesomeIcon>
                 <button
                     onClick={this._handleSubmit}
                 >Submit</button>
