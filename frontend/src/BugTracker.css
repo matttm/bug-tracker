@@ -52,12 +52,8 @@
 }
 
 .form-close {
-  position: absolute;
-  right: 6px;
-  top: 9px;
-  cursor: pointer;
-  border: none;
-  font-size: 20px;
+  display: flexbox;
+  flex-direction: row-reverse;
 }
 
 .form-field {
