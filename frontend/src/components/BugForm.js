@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 export default class BugForm extends React.Component {
     constructor(props) {
@@ -49,9 +50,9 @@ export default class BugForm extends React.Component {
                     <Form.Control type="text" value={this.state.reporter} onChange={this.onChangeText} />
                     <Form.Control as="textarea" value={this.state.desc} onChange={this.onChangeText} />
                 </Form>
-                <button
+                <Button
                     onClick={this._handleSubmit}
-                >Submit</button>
+                >Submit</Button>
             </React.Fragment>
         );
         return ReactDOM.createPortal(form, this.el);
