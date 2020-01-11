@@ -39,7 +39,11 @@ export default class BugForm extends React.Component {
                     </FontAwesomeIcon>
                 </div>
                 <Form>
-                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeText} />
+                    <Form.Control
+                        type="text"
+                        value={this.state.name}
+                        onChange={this.onChangeText}
+                    />
                     <Form.Control as="select">
                         <option>1</option>
                         <option>2</option>
@@ -47,8 +51,17 @@ export default class BugForm extends React.Component {
                         <option>4</option>
                         <option>5</option>
                     </Form.Control>
-                    <Form.Control type="text" value={this.state.reporter} onChange={this.onChangeText} />
-                    <Form.Control as="textarea" value={this.state.desc} onChange={this.onChangeText} />
+                    <Form.Control
+                        type="text"
+                        value={this.state.reporter}
+                        onChange={this.onChangeText}
+                    />
+                    <Form.Control
+                        as="textarea"
+                        value={this.state.desc}
+                        onChange={this.onChangeText}
+                        rows="7"
+                    />
                 </Form>
                 <Button
                     onClick={this._handleSubmit}
