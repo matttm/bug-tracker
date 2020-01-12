@@ -26,15 +26,14 @@ export default class Bug extends React.Component {
                         </div>
                     </div>
                 </div>
-                <Modal show={this.state.show} onHide={this.handleClose} animation={false}>
                     <BugDesc
+                        show={this.state.show} onHide={this.handleClose}
                         name={this.props.name}
                         desc={this.props.desc}
                         priority={this.props.priority}
                         date={this.props.date}
                         reporter={this.props.reporter}
                     />
-                </Modal>
             </>
         );
     }
