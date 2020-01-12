@@ -10,16 +10,7 @@ export default class BugDesc extends React.Component {
         // this.portalRoot = document.getElementById("portal");
         // this.el = document.createElement("div");
         // this.el.className = "portal";
-    }
-
-    // componentDidMount() {
-    //     this.portalRoot.appendChild(this.el);
-    // }
-
-    // componentWillUnmount() {
-    //     this.portalRoot.removeChild(this.el);
-    // }
-    
+    }    
 
     render() {
       return (
@@ -29,10 +20,14 @@ export default class BugDesc extends React.Component {
                         icon={faTimesCircle}
                         onClick={this.props.toggleForm}>
                     </FontAwesomeIcon>
-                    Testing
+                    {this.props.name}
+                    {this.props.date}
+                    Reporter: {this.props.reporter}
+                    {this.props.desc}
+                    Priority: {this.props.priority}
+
                 </div>
             </React.Fragment>
         );
-        // return ReactDOM.createPortal(form, this.el);
     }
 }
