@@ -1,5 +1,4 @@
 import React from 'react';
-import Modal from 'react-bootstrap/Modal';
 import BugDesc from './BugDesc';
 
 export default class Bug extends React.Component {
