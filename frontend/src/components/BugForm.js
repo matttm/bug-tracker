@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 export default class BugForm extends React.Component {
     constructor(props) {
@@ -14,23 +15,16 @@ export default class BugForm extends React.Component {
             priority: 1,
             reporter: "Reporter"
         };
-        this.portalRoot = document.getElementById("portal");
-        this.el = document.createElement("div");
-        this.el.className = "portal";
     }
 
-    componentDidMount() {
-        this.portalRoot.appendChild(this.el);
+    _handleSubmit = () => {
+        this.props.handleSubmit({...this.state});
+        this.props.onHide();
     }
-
-    componentWillUnmount() {
-        this.portalRoot.removeChild(this.el);
-    }
-    
-    _handleSubmit = () => this.props.handleSubmit({...this.state});
 
     render() {
-        let form = (
+        return (
+            <Modal show={this.props.show} onHide={this.props.onHide} animation={false}>
             <React.Fragment>
                 <div className="form-close">
                     <FontAwesomeIcon
@@ -38,6 +32,9 @@ export default class BugForm extends React.Component {
                         onClick={this.props.toggleForm}>
                     </FontAwesomeIcon>
                 </div>
+                <Modal.Header>
+                    <Modal.Title>Report a Bug</Modal.Title>
+                </Modal.Header>
                 <Form>
                     <Form.Control
                         type="text"
@@ -67,7 +64,7 @@ export default class BugForm extends React.Component {
                     onClick={this._handleSubmit}
                 >Submit</Button>
             </React.Fragment>
+            </Modal>
         );
-        return ReactDOM.createPortal(form, this.el);
     }
 }

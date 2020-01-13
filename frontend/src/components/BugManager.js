@@ -21,11 +21,8 @@ export default class BugManager extends React.Component {
     
     sortArray = (f) => this.setState( prevState => ({bugList: prevState.bugList.sort(f) }) );
     
-    toggleFormVisibility = () => {
-        this.setState({
-            formIsVisible: !this.state.formIsVisible
-        })
-    }
+    openForm = () => this.setState({ formIsVisible: true });
+    closeForm = () => this.setState({ formIsVisible: false });
 
     render() {
         return (
@@ -33,7 +30,7 @@ export default class BugManager extends React.Component {
             <div className="bug-manager-toolbar">
                 <Button
                     size="sm"
-                    onClick={this.toggleFormVisibility} >Create Bug
+                    onClick={this.openForm}>Report Bug
                 </Button>
                 <DropdownButton
                     size="sm"
@@ -55,14 +52,12 @@ export default class BugManager extends React.Component {
                 </DropdownButton>
             </div>
             <BugList bugList={this.state.bugList} />
-                {
-                    this.state.formIsVisible ?
-                        <BugForm
-                            toggleForm={this.toggleFormVisibility}
-                            handleSubmit={this.props.handleSubmit}
-                        />
-                        : null
-                }
+            <BugForm
+                show={this.state.formIsVisible}
+                onHide={this.closeForm}
+                toggleForm={this.toggleFormVisibility}
+                handleSubmit={this.props.handleSubmit}
+            />
             </>
         );
     }
