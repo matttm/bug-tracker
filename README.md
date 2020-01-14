@@ -1,5 +1,5 @@
 # Bug Tracker
-This is a full-stack JavaScript web application. Its frontend is written using ReatJS and Bootstrap. whereas the backend is an Express server that will be conneted to a MongoDB DB.
+This is a full-stack JavaScript web application. Its frontend is written using ReactJS and Bootstrap. whereas the backend is an ExpressJS server that will be conneted to a MongoDB database.
 
 ## Running
 - `yarn start:client` will run the frontend, React application, which itself currently is using `react-scripts`, which serves the application to a development server.
