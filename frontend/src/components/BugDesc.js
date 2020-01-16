@@ -2,6 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-bootstrap/Modal';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default class BugDesc extends React.Component {
     constructor(props) {
@@ -21,11 +24,16 @@ export default class BugDesc extends React.Component {
                         <Modal.Title>{this.props.name}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        {this.props.date}
-                        Reporter: {this.props.reporter}
+                        <Container fluid>
+                            <Row className="show-grid">
+                                Priority: {this.props.priority}
+                                Reporter: {this.props.reporter}
+                            </Row>     
+                            Date: {this.props.date}
+                        </Container>
+
                         {this.props.desc}
-                        Priority: {this.props.priority}
-                    </Modal.Body>
+x                    </Modal.Body>
                 </div>
             </React.Fragment>
         </Modal>
