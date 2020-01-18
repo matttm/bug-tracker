@@ -16,11 +16,11 @@ export default class Bug extends React.Component {
         return (
             <>
                 <div className="bug" onClick={this.handleOpen}>
-                    <div className='bugInfo'>
-                        <div className='bugName'>
+                    <div className='bug-info'>
+                        <div className='bug-name'>
                             {this.props.name}
                         </div>
-                        <div className="bugDate">
+                        <div className="bug-date">
                             {this.props.date}
                         </div>
                     </div>
