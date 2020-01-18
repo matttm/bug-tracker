@@ -25,11 +25,17 @@ export default class BugDesc extends React.Component {
                     </Modal.Header>
                     <Modal.Body>
                         <Container fluid>
-                            <Row className="show-grid">
-                                Priority: {this.props.priority}
-                                Reporter: {this.props.reporter}
-                            </Row>     
-                            Date: {this.props.date}
+                            <div className="flex-grid">
+                                <div className="col">
+                                    Priority: {this.props.priority}
+                                </div>
+                                <div className="col">
+                                    Reporter: {this.props.reporter}
+                                </div>
+                                <div className="col">
+                                    Date: {this.props.date}
+                                </div>
+                            </div>
                         </Container>
 
                         {this.props.desc}

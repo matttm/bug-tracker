@@ -61,10 +61,13 @@
   border-radius: 5px;
 }
 
-input.form-field {
-
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
 }
-.bugDate {}
+.col {
+  flex: 1 1 calc(100% - 50px);
+}
 
 li {
     list-style-type: none;
