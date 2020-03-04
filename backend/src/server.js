@@ -1,5 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import low from "lowdb";
+import FileSync from "lowdb/adapters/FileSync";
+
+const adapter = new FileSync("../resources/db.json");
+const db = low(adapter);
 
 const PORT = 3000;
 const app = express();
