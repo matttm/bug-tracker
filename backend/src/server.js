@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var low        = require( "lowdb");
 var FileSync   = require("lowdb/adapters/FileSync");
 
-const adapter = new FileSync("backend/resources/db.json");
+const adapter = new FileSync("resources/db.json");
 const db      = low(adapter);
 
 const PORT   = 3000;

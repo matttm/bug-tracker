@@ -6,7 +6,7 @@
   "scripts": {
     "start:server": "cd backend && yarn start && cd ..",
     "start:client": "cd frontend && yarn start && cd ..",
-    "start:dev": "concurrently \"yarn start:server\" \"yarn start:client\""
+    "start:dev": "concurrently --kill-others-on-fail \"yarn start:server\" \"yarn start:client\""
   },
   "author": "Matt Maloney",
   "license": "MIT",
