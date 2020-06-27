@@ -1,7 +1,7 @@
 import React from 'react';
-import { getTestBugs } from '../TestData';
 import '../BugTracker.css';
 import BugManager from './BugManager';
+import axios from 'axios';
 
 export default class BugTracker extends React.Component {
   constructor(props) {
@@ -12,13 +12,19 @@ export default class BugTracker extends React.Component {
   }
 
   componentDidMount() {
-    this.setState( { bugList: [...getTestBugs()] } );
+    this.syncBugList();
   }
 
   handleSubmit = (bug) => {
     const id = this.state.bugList.length + 1;
     const date = new Date().toString();
     this.setState({bugList: [...this.state.bugList, {id, date, ...bug}] });
+  }
+
+  syncBugList = () => {
+    axios.get("api/bugs")
+        .then((data) => data.json())
+        .then((res) => this.setState({ bugList: res.data() }));
   }
 
   render() {
