@@ -1,13 +1,13 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import low from "lowdb";
-import FileSync from "lowdb/adapters/FileSync";
+var express    = require('express');
+var bodyParser = require('body-parser');
+var low        = require( "lowdb");
+var FileSync   = require("lowdb/adapters/FileSync");
 
-const adapter = new FileSync("../resources/db.json");
-const db = low(adapter);
+const adapter = new FileSync("backend/resources/db.json");
+const db      = low(adapter);
 
-const PORT = 3000;
-const app = express();
+const PORT   = 3000;
+const app    = express();
 const router = express.Router();
 
 db.defaults({ bugs: [], count: 0 })
@@ -23,6 +23,7 @@ router.get('/test', (req, res) => {
 });
 
 router.get('/bugs', (req, res) => {
+    console.log('GET request received by /bugs');
     res.json(
         db.get('bugs')
             .value()
@@ -30,6 +31,7 @@ router.get('/bugs', (req, res) => {
 })
 
 router.post('/bugs', (req, res) => {
+    console.log('POST request received by /bugs');
     const bug = req.body;
     db.get('bugs')
         .push({
