@@ -23,8 +23,12 @@ export default class BugTracker extends React.Component {
 
   syncBugList = () => {
     axios.get("api/bugs")
-        .then((data) => data.json())
-        .then((res) => this.setState({ bugList: res.data() }));
+        .then((data) => {  // data.json())
+            console.log('Data receiveed ', data);
+	}, (error) => {
+	    console.log(error);
+	})
+//        .then((res) => this.setState({ bugList: res.data() }));
   }
 
   render() {
