@@ -1,7 +1,7 @@
 {
   "bugs": [
     {
-      "id": 1,
+      "id": 0,
       "name": "Context Menu is broken",
       "desc": "Right-click generates an event, but the context menu is not shown",
       "priority": 5,
@@ -9,7 +9,7 @@
       "reporter": "Matt Maloney"
     },
     {
-      "id": 2,
+      "id": 1,
       "name": "Tracks are not being registered",
       "desc": "Track entities are being displayed but are not being registered in the event registration systenm",
       "priority": 3,
@@ -17,7 +17,7 @@
       "reporter": "Matt Maloney"
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "Consolidate CSS naming scheme",
       "desc": "The CSS file being used contains classes of varying prefixes. Refactor these classes to conform to one prefix",
       "priority": 1,
@@ -25,7 +25,7 @@
       "reporter": "Matt Maloney"
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "Fix sorting capability",
       "desc": "React does not rerender when the bug list is sorted. Further investigating has to be done if this is the issue or the list isn't even being sorted.",
       "priority": 2,
@@ -33,7 +33,7 @@
       "reporter": "John Doe"
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Fix typos in comments",
       "desc": "There is a multiitude of typos in comments. Fix them.",
       "priority": 4,
@@ -41,5 +41,5 @@
       "reporter": "Ray Donavan"
     }
   ],
-  "count": 0
+  "count": 5
 }

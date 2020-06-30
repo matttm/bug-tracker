@@ -7,18 +7,37 @@ export default class BugTracker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bugList: []
+      bugList: [],
+      intervalIsSet: false
     }
   }
 
   componentDidMount() {
     this.syncBugList();
+    if (!this.state.intervalIsSet) {
+      let interval = setInterval(this.syncBugList, 2000);
+      this.setState( {intervalIsSet: interval });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.state.intervalIsSet) {
+      clearInterval(this.state.intervalIsSet);
+      this.setState( {intervalIsSet: false });
+    }
   }
 
   handleSubmit = (bug) => {
-    const id = this.state.bugList.length + 1;
-    const date = new Date().toString();
-    this.setState({bugList: [...this.state.bugList, {id, date, ...bug}] });
+//    const id = this.state.bugList.length + 1;
+//    const date = new Date().toString();
+//    this.setState({bugList: [...this.state.bugList, {id, date, ...bug}] });
+    axios.post("api/bugs", {
+      bug
+    })
+    .then(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
   }
 
   syncBugList = () => {

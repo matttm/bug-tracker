@@ -32,7 +32,7 @@ router.get('/bugs', (req, res) => {
 
 router.post('/bugs', (req, res) => {
     console.log('POST request received by /bugs');
-    const bug = req.body;
+    const bug = req.body.bug;
     db.get('bugs')
         .push({
             id: db.get('count').value(),
@@ -43,7 +43,7 @@ router.post('/bugs', (req, res) => {
             reporter: bug.reporter
         })
         .write();
-	updateCount();
+    updateCount();
 });
 
 app.use('/api', router);
