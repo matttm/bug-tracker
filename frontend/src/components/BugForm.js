@@ -17,16 +17,13 @@ export default class BugForm extends React.Component {
     }
 
     _handleSubmit = () => {
-	    console.log(this.onChangeText);
         this.props.handleSubmit({...this.state});
         this.props.onHide();
     }
 
     onChangeText = (e) => {
         let newState = { ...this.state };
-        console.log(`key ${e.target.name} value ${e.target.value} newState ${newState}`);
         newState[e.target.name] = e.target.value;
-	    console.log(`newSate ${newState}`);
         this.setState(newState);
     }
 

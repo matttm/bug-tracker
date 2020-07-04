@@ -23,7 +23,6 @@ router.get('/test', (req, res) => {
 });
 
 router.get('/bugs', (req, res) => {
-    console.log('GET request received by /bugs');
     res.json(
         db.get('bugs')
             .value()
@@ -31,7 +30,6 @@ router.get('/bugs', (req, res) => {
 })
 
 router.post('/bugs', (req, res) => {
-    console.log('POST request received by /bugs');
     const bug = req.body.bug;
     db.get('bugs')
         .push({
