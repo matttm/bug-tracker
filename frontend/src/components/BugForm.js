@@ -17,8 +17,17 @@ export default class BugForm extends React.Component {
     }
 
     _handleSubmit = () => {
+	    console.log(this.onChangeText);
         this.props.handleSubmit({...this.state});
         this.props.onHide();
+    }
+
+    onChangeText = (e) => {
+        let newState = { ...this.state };
+        console.log(`key ${e.target.name} value ${e.target.value} newState ${newState}`);
+        newState[e.target.name] = e.target.value;
+	    console.log(`newSate ${newState}`);
+        this.setState(newState);
     }
 
     render() {
@@ -37,6 +46,7 @@ export default class BugForm extends React.Component {
                 <Form>
                     <Form.Control
                         type="text"
+		        name="name"
                         value={this.state.name}
                         onChange={this.onChangeText}
                     />
@@ -49,11 +59,13 @@ export default class BugForm extends React.Component {
                     </Form.Control>
                     <Form.Control
                         type="text"
+		        name="reporter"
                         value={this.state.reporter}
                         onChange={this.onChangeText}
                     />
                     <Form.Control
                         as="textarea"
+		        name="desc"
                         value={this.state.desc}
                         onChange={this.onChangeText}
                         rows="7"

@@ -28,9 +28,6 @@ export default class BugTracker extends React.Component {
   }
 
   handleSubmit = (bug) => {
-//    const id = this.state.bugList.length + 1;
-//    const date = new Date().toString();
-//    this.setState({bugList: [...this.state.bugList, {id, date, ...bug}] });
     axios.post("api/bugs", {
       bug
     })
@@ -43,7 +40,6 @@ export default class BugTracker extends React.Component {
   syncBugList = () => {
     axios.get("api/bugs")
         .then((res) => {
-	    console.log(res);
 	    this.setState({ bugList: res.data });
 	})
         .catch((err) => console.log(err));
