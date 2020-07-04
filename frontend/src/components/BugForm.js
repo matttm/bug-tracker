@@ -6,13 +6,20 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 export default class BugForm extends React.Component {
+    static defaultProps = {
+        name: "Name of the problem",
+        desc: "Description",
+        priority: 1,
+        reporter: "Reporter"
+    };
+    
     constructor(props) {
         super(props);
         this.state = {
-            name: "Name of the problem",
-            desc: "Description",
-            priority: 1,
-            reporter: "Reporter"
+            name: this.props.name,
+            desc: this.props.desc,
+            priority: this.props.priority,
+            reporter: this.props.reporter
         };
     }
 
@@ -29,7 +36,7 @@ export default class BugForm extends React.Component {
 
     render() {
         return (
-            <Modal show={this.props.show} onHide={this.props.onHide} animation={false}>
+            <Modal show={this.props.show} onHide={this.props.onHide} animation={true}>
             <React.Fragment>
                 <div className="form-close">
                     <FontAwesomeIcon
