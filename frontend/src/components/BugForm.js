@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -38,12 +36,6 @@ export default class BugForm extends React.Component {
         return (
             <Modal show={this.props.show} onHide={this.props.onHide} animation={true}>
             <React.Fragment>
-                <div className="form-close">
-                    <FontAwesomeIcon
-                        icon={faTimesCircle}
-                        onClick={this.props.toggleForm}>
-                    </FontAwesomeIcon>
-                </div>
                 <Modal.Header>
                     <Modal.Title>Report a Bug</Modal.Title>
                 </Modal.Header>
