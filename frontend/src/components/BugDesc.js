@@ -35,11 +35,12 @@ export default class BugDesc extends React.Component {
                                 <div className="col">
                                     Date: {this.props.date}
                                 </div>
+                                <div className="col">
+                                    {this.props.desc}
+                                </div>
                             </div>
                         </Container>
-
-                        {this.props.desc}
-x                    </Modal.Body>
+                    </Modal.Body>
                 </div>
             </React.Fragment>
         </Modal>
