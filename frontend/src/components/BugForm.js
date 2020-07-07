@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import GenericModal from './GenericModal';
 
 export default class BugForm extends React.Component {
     static defaultProps = {
@@ -34,15 +35,15 @@ export default class BugForm extends React.Component {
 
     render() {
         return (
-            <Modal show={this.props.show} onHide={this.props.onHide} animation={true}>
-            <React.Fragment>
-                <Modal.Header>
-                    <Modal.Title>Report a Bug</Modal.Title>
-                </Modal.Header>
+            <GenericModal
+              show={this.props.show}
+              onHide={this.props.onHide}
+              title="Report a Bug"
+            >
                 <Form>
                     <Form.Control
                         type="text"
-		        name="name"
+		                name="name"
                         value={this.state.name}
                         onChange={this.onChangeText}
                     />
@@ -55,13 +56,13 @@ export default class BugForm extends React.Component {
                     </Form.Control>
                     <Form.Control
                         type="text"
-		        name="reporter"
+		                name="reporter"
                         value={this.state.reporter}
                         onChange={this.onChangeText}
                     />
                     <Form.Control
                         as="textarea"
-		        name="desc"
+		                name="desc"
                         value={this.state.desc}
                         onChange={this.onChangeText}
                         rows="7"
@@ -70,8 +71,7 @@ export default class BugForm extends React.Component {
                 <Button
                     onClick={this._handleSubmit}
                 >Submit</Button>
-            </React.Fragment>
-            </Modal>
+            </GenericModal>
         );
     }
 }
