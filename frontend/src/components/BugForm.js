@@ -6,6 +6,7 @@ import GenericModal from './GenericModal';
 
 export default class BugForm extends React.Component {
     static defaultProps = {
+        id: null,
         name: "Name of the problem",
         desc: "Description",
         priority: 1,
@@ -15,6 +16,7 @@ export default class BugForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.id,
             name: this.props.name,
             desc: this.props.desc,
             priority: this.props.priority,

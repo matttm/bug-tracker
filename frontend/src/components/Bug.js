@@ -27,6 +27,7 @@ export default class Bug extends React.Component {
                 </div>
                     <BugDesc
                         show={this.state.show} onHide={this.handleClose}
+                        id={this.props.id}
                         name={this.props.name}
                         desc={this.props.desc}
                         priority={this.props.priority}

@@ -29,6 +29,22 @@ router.get('/bugs', (req, res) => {
     );
 })
 
+router.post('/bugs/:bugId(/+d)', (req, res) => {
+	console.log('backend is receivin edit');
+    let bug = req.body.bug;
+    db('bugs')
+      .find({ "id": req.params.bugId})
+      .assign({
+        name: bug.name,
+        desc: bug.desc,
+        priority: bug.priority,
+        reporter: bug.reporter
+      }).value();
+});
+
+router.delete('/bugs/:bugId(/+d)', (req, res) => {
+});
+
 router.post('/bugs', (req, res) => {
     const bug = req.body.bug;
     db.get('bugs')

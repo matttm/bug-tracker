@@ -14,6 +14,7 @@ export default class BugList extends React.Component {
                     className="bugItem"
                 >
                     <Bug
+                        id={bug.id}
                         name={bug.name}
                         desc={bug.desc}
                         priority={bug.priority}

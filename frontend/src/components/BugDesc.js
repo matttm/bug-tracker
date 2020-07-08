@@ -12,9 +12,9 @@ export default class BugDesc extends React.Component {
         };
     }
 
-    handleEdit = () => {
+    handleEdit = (bug) => {
         this.toggleEdit();
-        this.props.updateBug();
+        this.props.updateBug(bug);
     }
 
     toggleEdit = () => this.setState({ isEdit: !this.state.isEdit });
@@ -26,6 +26,7 @@ export default class BugDesc extends React.Component {
                 onHide={this.toggleEdit}
                 toggleForm={this.toggleEdit}
                 handleSubmit={this.handleEdit}
+                id={this.props.id}
                 name={this.props.name}
                 reporter={this.props.reporter}
                 desc={this.props.desc}
