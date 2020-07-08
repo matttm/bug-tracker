@@ -51,7 +51,7 @@ export default class BugManager extends React.Component {
                     >Priority</Dropdown.Item>
                 </DropdownButton>
             </div>
-            <BugList bugList={this.state.bugList} />
+            <BugList bugList={this.state.bugList} updateBug={this.props.updateBug}/>
             <BugForm
                 show={this.state.formIsVisible}
                 onHide={this.closeForm}

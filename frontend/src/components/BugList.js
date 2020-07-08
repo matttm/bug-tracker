@@ -19,6 +19,7 @@ export default class BugList extends React.Component {
                         priority={bug.priority}
                         date={bug.date}
                         reporter={bug.reporter}
+		        updateBug={this.props.updateBug}
                     />
                 </li>
             );

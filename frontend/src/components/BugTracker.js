@@ -27,7 +27,9 @@ export default class BugTracker extends React.Component {
     }
   }
 
-  handleSubmit = (bug) => {
+  updateBug = (bug) => { console.log('Edit is being called') }
+
+  createBug = (bug) => {
     axios.post("api/bugs", {
       bug
     })
@@ -51,7 +53,8 @@ export default class BugTracker extends React.Component {
           <h2>Bug Tracker</h2>
           <BugManager
             bugList={this.state.bugList}
-            handleSubmit={this.handleSubmit}
+            handleSubmit={this.createBug}
+	    updateBug={this.updateBug}
           />
         </div>
       );

@@ -32,6 +32,7 @@ export default class Bug extends React.Component {
                         priority={this.props.priority}
                         date={this.props.date}
                         reporter={this.props.reporter}
+			updateBug={this.props.updateBug}
                     />
             </>
         );
