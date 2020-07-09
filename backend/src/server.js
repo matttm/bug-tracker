@@ -22,28 +22,34 @@ router.get('/test', (req, res) => {
     res.json({ message: "Test Successful' "});
 });
 
+router.post('/bugs/:bugId', (req, res) => {
+    let bug = req.body.bug;
+    let id = parseInt(req.params.bugId);
+    if (id) {
+        db.get('bugs')
+          .find({ id: id })
+          .assign({
+            name: bug.name,
+            desc: bug.desc,
+            priority: bug.priority,
+            reporter: bug.reporter
+          }).value();
+        db.write();
+        res.json({ status: "bug updated" });
+    } else {
+        res.status(500).json({ status: "Invalid bugId" });
+    }
+});
+
+router.delete('/bugs/:bugId(\\+d)', (req, res) => {
+});
+
 router.get('/bugs', (req, res) => {
     res.json(
         db.get('bugs')
             .value()
     );
 })
-
-router.post('/bugs/:bugId(/+d)', (req, res) => {
-	console.log('backend is receivin edit');
-    let bug = req.body.bug;
-    db('bugs')
-      .find({ "id": req.params.bugId})
-      .assign({
-        name: bug.name,
-        desc: bug.desc,
-        priority: bug.priority,
-        reporter: bug.reporter
-      }).value();
-});
-
-router.delete('/bugs/:bugId(/+d)', (req, res) => {
-});
 
 router.post('/bugs', (req, res) => {
     const bug = req.body.bug;

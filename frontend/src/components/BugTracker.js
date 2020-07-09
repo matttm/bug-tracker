@@ -28,7 +28,6 @@ export default class BugTracker extends React.Component {
   }
 
   updateBug = (bug) => {
-    console.log(JSON.stringify(bug));
     axios.post(`api/bugs/${bug.id}`, {
       bug
     })
