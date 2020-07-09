@@ -37,6 +37,16 @@ export default class BugTracker extends React.Component {
     );
   }
 
+  deleteBug = (id) => {
+    axios.delete(`api/bugs/${id}`, {
+	    params: { id }
+    })
+    .then(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
+  }
+
   createBug = (bug) => {
     axios.post("api/bugs", {
       bug
@@ -63,6 +73,7 @@ export default class BugTracker extends React.Component {
             bugList={this.state.bugList}
             handleSubmit={this.createBug}
 	    updateBug={this.updateBug}
+            deleteBug={this.deleteBug}
           />
         </div>
       );

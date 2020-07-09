@@ -17,6 +17,10 @@ export default class BugDesc extends React.Component {
         this.props.updateBug(bug);
     }
 
+    handleDelete = () => {
+        this.props.deleteBug(this.props.id);
+        // TODO: call something here to close modal
+    }
     toggleEdit = () => this.setState({ isEdit: !this.state.isEdit });
 
     getContent() {
@@ -64,7 +68,8 @@ export default class BugDesc extends React.Component {
                   onClick={this.toggleEdit}>
                     Edit
                 </Button>
-                <Button>
+                <Button
+                  onClick={this.handleDelete}>
                     Delete
                 </Button>
             </Container>

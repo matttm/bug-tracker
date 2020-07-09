@@ -21,6 +21,7 @@ export default class BugList extends React.Component {
                         date={bug.date}
                         reporter={bug.reporter}
 		        updateBug={this.props.updateBug}
+                        deleteBug={this.props.deleteBug}
                     />
                 </li>
             );

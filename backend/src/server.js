@@ -41,7 +41,16 @@ router.post('/bugs/:bugId', (req, res) => {
     }
 });
 
-router.delete('/bugs/:bugId(\\+d)', (req, res) => {
+router.delete('/bugs/:bugId', (req, res) => {
+    let id = parseInt(req.params.bugId);
+    if (id) {
+        db.get('bugs')
+          .remove({ id: id })
+          .write();
+        res.json({ status: "bug updated" });
+    } else {
+        res.status(500).json({ status: "Invalid bugId" });
+    }
 });
 
 router.get('/bugs', (req, res) => {
