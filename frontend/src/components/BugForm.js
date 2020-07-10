@@ -67,6 +67,9 @@ export default class BugForm extends React.Component {
                 <Button
                     onClick={this._handleSubmit}
                 >Submit</Button>
+                <Button
+                    onClick={this.props.onHide}
+                >Cancel</Button>
             </>
         );
     }
