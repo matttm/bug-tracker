@@ -25,7 +25,7 @@ router.get('/test', (req, res) => {
 router.post('/bugs/:bugId', (req, res) => {
     let bug = req.body.bug;
     let id = parseInt(req.params.bugId);
-    if (id) {
+    if (Number.isInteger(id)) {
         db.get('bugs')
           .find({ id: id })
           .assign({
@@ -43,7 +43,7 @@ router.post('/bugs/:bugId', (req, res) => {
 
 router.delete('/bugs/:bugId', (req, res) => {
     let id = parseInt(req.params.bugId);
-    if (id) {
+    if (Number.isInteger(id)) {
         db.get('bugs')
           .remove({ id: id })
           .write();
