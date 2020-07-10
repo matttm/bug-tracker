@@ -4,6 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { sortFunctions } from '../helpers';
 import BugList from './BugList';
+import GenericModal from './GenericModal';
 import BugForm from './BugForm';
 
 export default class BugManager extends React.Component {
@@ -21,8 +22,7 @@ export default class BugManager extends React.Component {
     
     sortArray = (f) => this.setState( prevState => ({bugList: prevState.bugList.sort(f) }) );
     
-    openForm = () => this.setState({ formIsVisible: true });
-    closeForm = () => this.setState({ formIsVisible: false });
+    toggleForm = () => this.setState({ formIsVisible: !this.state.formIsVisible });
 
     render() {
         return (
@@ -30,7 +30,7 @@ export default class BugManager extends React.Component {
             <div className="bug-manager-toolbar">
                 <Button
                     size="sm"
-                    onClick={this.openForm}>Report Bug
+                    onClick={this.toggleForm}>Report Bug
                 </Button>
                 <DropdownButton
                     size="sm"
@@ -56,12 +56,16 @@ export default class BugManager extends React.Component {
                  updateBug={this.props.updateBug}
                  deleteBug={this.props.deleteBug}
             />
-            <BugForm
-                show={this.state.formIsVisible}
-                onHide={this.closeForm}
-                toggleForm={this.toggleFormVisibility}
-                handleSubmit={this.props.handleSubmit}
-            />
+            <GenericModal
+              show={this.state.formIsVisible}
+              onHide={this.toggleForm}
+              title="Report a Bug"
+            >
+                <BugForm
+                    handleSubmit={this.props.handleSubmit}
+                    onHide={this.toggleForm}
+                />
+            </GenericModal>
             </>
         );
     }

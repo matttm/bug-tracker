@@ -28,7 +28,6 @@ export default class BugDesc extends React.Component {
             <BugForm
                 show={this.state.isEdit}
                 onHide={this.toggleEdit}
-                toggleForm={this.toggleEdit}
                 handleSubmit={this.handleEdit}
                 id={this.props.id}
                 name={this.props.name}
@@ -36,7 +35,11 @@ export default class BugDesc extends React.Component {
                 desc={this.props.desc}
             />
         ) : (
+            <>
             <div className="flex-grid">
+                <div className="col">
+                    Priority: {this.props.name}
+                </div>
                 <div className="col">
                     Priority: {this.props.priority}
                 </div>
@@ -50,6 +53,15 @@ export default class BugDesc extends React.Component {
                     {this.props.desc}
                 </div>
             </div>
+            <Button
+              onClick={this.toggleEdit}>
+                Edit
+            </Button>
+            <Button
+              onClick={this.handleDelete}>
+                Delete
+            </Button>
+            </>
         );
     }
 
@@ -60,18 +72,10 @@ export default class BugDesc extends React.Component {
         <GenericModal
           show={this.props.show}
           onHide={this.props.onHide}
-          title={this.props.name}
+          title="Edit Bug"
         >
             <Container fluid>
                 {content}
-                <Button
-                  onClick={this.toggleEdit}>
-                    Edit
-                </Button>
-                <Button
-                  onClick={this.handleDelete}>
-                    Delete
-                </Button>
             </Container>
         </GenericModal>
         );
