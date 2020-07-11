@@ -38,9 +38,6 @@ export default class BugDesc extends React.Component {
             <>
             <div className="flex-grid">
                 <div className="col">
-                    Priority: {this.props.name}
-                </div>
-                <div className="col">
                     Priority: {this.props.priority}
                 </div>
                 <div className="col">
@@ -69,12 +66,12 @@ export default class BugDesc extends React.Component {
 
     render() {
         let content = this.getContent();
-
+        let title = this.state.isEdit ? "Edit Bug" : this.props.name;
       return (
         <GenericModal
           show={this.props.show}
           onHide={this.props.onHide}
-          title="Edit Bug"
+          title={title}
         >
             <Container fluid>
                 {content}
