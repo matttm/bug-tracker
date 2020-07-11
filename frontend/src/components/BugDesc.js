@@ -58,7 +58,7 @@ export default class BugDesc extends React.Component {
                   onClick={this.toggleEdit}>
                     Edit
                 </Button>
-                <Button
+                <Button variant="danger"
                   onClick={this.handleDelete}>
                     Delete
                 </Button>
