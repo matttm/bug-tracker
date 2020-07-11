@@ -51,9 +51,11 @@
   text-align: center;
 }
 
-.form-close {
-  display: flexbox;
-  flex-direction: row-reverse;
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-block: 5px;
 }
 
 .form-field {

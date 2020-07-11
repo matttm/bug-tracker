@@ -53,14 +53,16 @@ export default class BugDesc extends React.Component {
                     {this.props.desc}
                 </div>
             </div>
-            <Button
-              onClick={this.toggleEdit}>
-                Edit
-            </Button>
-            <Button
-              onClick={this.handleDelete}>
-                Delete
-            </Button>
+	    <div className="button-container">
+                <Button
+                  onClick={this.toggleEdit}>
+                    Edit
+                </Button>
+                <Button
+                  onClick={this.handleDelete}>
+                    Delete
+                </Button>
+	    </div>
             </>
         );
     }

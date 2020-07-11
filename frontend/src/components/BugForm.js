@@ -39,7 +39,7 @@ export default class BugForm extends React.Component {
                 <Form>
                     <Form.Control
                         type="text"
-		                name="name"
+			name="name"
                         value={this.state.name}
                         onChange={this.onChangeText}
                     />
@@ -52,7 +52,7 @@ export default class BugForm extends React.Component {
                     </Form.Control>
                     <Form.Control
                         type="text"
-		                name="reporter"
+			name="reporter"
                         value={this.state.reporter}
                         onChange={this.onChangeText}
                     />
@@ -64,12 +64,14 @@ export default class BugForm extends React.Component {
                         rows="7"
                     />
                 </Form>
-                <Button
-                    onClick={this._handleSubmit}
-                >Submit</Button>
-                <Button
-                    onClick={this.props.onHide}
-                >Cancel</Button>
+		<div className="button-container">
+                    <Button
+                        onClick={this._handleSubmit}
+                    >Submit</Button>
+                    <Button
+                        onClick={this.props.onHide}
+                    >Cancel</Button>
+		</div>
             </>
         );
     }
