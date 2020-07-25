@@ -24,6 +24,10 @@ router.get('/test', (req, res) => {
 
 router.post('/bugs/:bugId', (req, res) => {
     let bug = req.body.bug;
+    if (!bug) {
+        res.status(400).json({ status: "no bug provided" }).end();
+        return;
+    }
     let id = parseInt(req.params.bugId);
     if (Number.isInteger(id)) {
         db.get('bugs')
@@ -35,9 +39,9 @@ router.post('/bugs/:bugId', (req, res) => {
             reporter: bug.reporter
           }).value();
         db.write();
-        res.json({ status: "bug updated" });
+        res.status(200).json({ status: "bug updated" });
     } else {
-        res.status(500).json({ status: "Invalid bugId" });
+        res.status(400).json({ status: "Invalid bugId" });
     }
 });
 
