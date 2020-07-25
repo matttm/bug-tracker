@@ -1,8 +1,8 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
-import GenericModal from './GenericModal';
-import BugForm from './BugForm';
+import GenericModal from '../GenericModal';
+import BugForm from '../bug-form/BugForm';
 
 export default class BugDesc extends React.Component {
     constructor(props) {

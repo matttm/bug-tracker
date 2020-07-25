@@ -1,5 +1,5 @@
 import React from 'react';
-import BugDesc from './BugDesc';
+import BugDesc from '../bug-desc/BugDesc';
 
 export default class Bug extends React.Component {
     constructor(props) {
@@ -33,7 +33,7 @@ export default class Bug extends React.Component {
                     priority={this.props.priority}
                     date={this.props.date}
                     reporter={this.props.reporter}
-		    updateBug={this.props.updateBug}
+		            updateBug={this.props.updateBug}
                     deleteBug={this.props.deleteBug}
                 />
             </>

@@ -2,10 +2,10 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from "react-bootstrap/DropdownButton";
-import { sortFunctions } from '../helpers';
-import BugList from './BugList';
-import GenericModal from './GenericModal';
-import BugForm from './BugForm';
+import { sortFunctions } from '../../helpers';
+import BugList from '../bug-list/BugList';
+import GenericModal from '../GenericModal';
+import BugForm from '../bug-form/BugForm';
 
 export default class BugManager extends React.Component {
     constructor(props) {

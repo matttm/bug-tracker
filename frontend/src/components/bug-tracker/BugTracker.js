@@ -1,6 +1,6 @@
 import React from 'react';
-import '../BugTracker.css';
-import BugManager from './BugManager';
+import '../../BugTracker.css';
+import BugManager from '../bug-manager/BugManager';
 import axios from 'axios';
 
 export default class BugTracker extends React.Component {

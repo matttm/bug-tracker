@@ -1,5 +1,5 @@
 import React from 'react';
-import Bug from './Bug';
+import Bug from '../bug/Bug';
 
 export default class BugList extends React.Component {
     constructor(props) {
