@@ -51,14 +51,14 @@ router.delete('/bugs/:bugId', (req, res) => {
         db.get('bugs')
           .remove({ id: id })
           .write();
-        res.json({ status: "bug updated" });
+        res.status(200).json({ status: "bug deleted" });
     } else {
         res.status(500).json({ status: "Invalid bugId" });
     }
 });
 
 router.get('/bugs', (req, res) => {
-    res.json(
+    res.status(200).json(
         db.get('bugs')
             .value()
     );
@@ -77,6 +77,7 @@ router.post('/bugs', (req, res) => {
         })
         .write();
     updateCount();
+    res.status(200).json({ status: 'bug created' })
 });
 
 app.use('/api', router);
