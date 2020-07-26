@@ -6,7 +6,6 @@ var FileSync   = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("resources/db.json");
 const db      = low(adapter);
 
-const PORT   = 3001;
 const app    = express();
 const router = express.Router();
 
@@ -62,7 +61,7 @@ router.get('/bugs', (req, res) => {
         db.get('bugs')
             .value()
     );
-})
+});
 
 router.post('/bugs', (req, res) => {
     const bug = req.body.bug;
@@ -81,7 +80,5 @@ router.post('/bugs', (req, res) => {
 });
 
 app.use('/api', router);
-
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 module.exports = app;
