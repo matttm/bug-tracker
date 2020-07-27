@@ -12,14 +12,18 @@ var path = require('path');
 if (!process.env.NODE_ENV) {
     console.log('NODE_ENV is not defined');
     process.exit(1);
+} else {
+    console.log('NODE_ENV is defined');
 }
-require('dotenv').config({ path: path.resolve(__dirname, `.${process.env.NODE_ENV}.env` )});
+require('dotenv').config({ path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env` )});
+console.log(path.resolve(__dirname, `../.${process.env.NODE_ENV}.env` ));
+console.log('dotenv was configured ' + process.env.PORT + ' ' + process.env.DB_FILE);
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3001');
+var port = normalizePort('3001' || process.env.PORT || '3001');
 app.set('port', port);
 
 /**
