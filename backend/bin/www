@@ -7,6 +7,13 @@
 var app = require('../src/server');
 var debug = require('debug')('blockchain:server');
 var http = require('http');
+var path = require('path');
+
+if (!process.env.NODE_ENV) {
+    console.log('NODE_ENV is not defined');
+    process.exit(1);
+}
+require('dotenv').config({ path: path.resolve(__dirname, `.${process.env.NODE_ENV}.env` )});
 
 /**
  * Get port from environment and store in Express.
