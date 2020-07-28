@@ -1,13 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Module dependencies.
+ * Resolve environment variables
  */
-
-var app = require('../src/server');
-var debug = require('debug')('blockchain:server');
-var http = require('http');
-var path = require('path');
 
 if (!process.env.NODE_ENV) {
     console.log('NODE_ENV is not defined');
@@ -15,15 +10,23 @@ if (!process.env.NODE_ENV) {
 } else {
     console.log('NODE_ENV is defined');
 }
+var path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env` )});
-console.log(path.resolve(__dirname, `../.${process.env.NODE_ENV}.env` ));
 console.log('dotenv was configured ' + process.env.PORT + ' ' + process.env.DB_FILE);
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../src/server');
+var debug = require('debug')('bug-tracker:server');
+var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort('3001' || process.env.PORT || '3001');
+var port = normalizePort('3001'); // || process.env.PORT || '3001');
 app.set('port', port);
 
 /**
@@ -99,3 +102,4 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+console.log('server instantiated');
