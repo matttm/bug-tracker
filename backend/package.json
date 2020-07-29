@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "bin/www",
   "scripts": {
-    "test": "env NODE_ENV=test node_modules/.bin/mocha",
+    "test": "NODE_ENV=test npx mocha",
     "start": "NODE_ENV=dev nodemon --ignore 'resources/*' bin/www --exec babel-node --presets babel-preset-env"
   },
   "license": "MIT",

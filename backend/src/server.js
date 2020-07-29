@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var low        = require( "lowdb");
 var FileSync   = require("lowdb/adapters/FileSync");
 
-console.log('In server:' + process.env.PORT + ' ' + process.env.DB_FILE);
 const adapter = new FileSync(`${process.env.DB_FILE}`);
 const db      = low(adapter);
 
@@ -83,5 +82,4 @@ router.post('/bugs', (req, res) => {
 app.use('/api', router);
 
 module.exports = app;
-console.log('app exported');
 
