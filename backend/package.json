@@ -1,10 +1,10 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "bin/www",
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
-    "start": "nodemon --ignore 'resources/*' bin/www --exec babel-node --presets babel-preset-env"
+    "test": "NODE_ENV=test npx mocha",
+    "start": "NODE_ENV=dev nodemon --ignore 'resources/*' bin/www --exec babel-node --presets babel-preset-env"
   },
   "license": "MIT",
   "devDependencies": {

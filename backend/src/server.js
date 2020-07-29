@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var low        = require( "lowdb");
 var FileSync   = require("lowdb/adapters/FileSync");
 
-const adapter = new FileSync("resources/db.json");
+const adapter = new FileSync(`${process.env.DB_FILE}`);
 const db      = low(adapter);
 
 const app    = express();
@@ -82,3 +82,4 @@ router.post('/bugs', (req, res) => {
 app.use('/api', router);
 
 module.exports = app;
+

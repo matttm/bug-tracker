@@ -1,8 +1,8 @@
 
 
-var assert = require('assert'),
-    app = require('../src/server'),
-    chai = require('chai'),
+var assert  = require('assert'),
+    server  = require('../bin/www'),
+    chai    = require('chai'),
     request = require('supertest');
 
 describe('Basic Mocha String Test', function() {
@@ -20,7 +20,7 @@ describe('POST to /bugs', function() {
     reporter: 'Matt Malo'
   };
   it('should return creation status json', function(done) {
-    request(app)
+    request(server)
       .post('/api/bugs')
       .send({
         bug:  _bug
@@ -44,7 +44,7 @@ describe('Testing /bugs/:bugId', function() {
     reporter: 'Matt Malo'
   };
   it('should return with bug updated json', function(done) {
-    request(app)
+    request(server)
       .post('/api/bugs/0')
       .send({
         bug: _bug
@@ -60,7 +60,7 @@ describe('Testing /bugs/:bugId', function() {
   });
 
   it('should return bad request', function(done) {
-    request(app)
+    request(server)
       .post('/api/bugs/0')
       .send()
       .expect(400)
@@ -75,7 +75,7 @@ describe('Testing /bugs/:bugId', function() {
 
 describe('GET to /bugs', function() {
   it('should return non empty json', function(done) {
-    request(app)
+    request(server)
       .get('/api/bugs')
       .expect('Content-Type', /json/)
       .expect(200)
@@ -89,7 +89,7 @@ describe('GET to /bugs', function() {
 
 describe('DELETE to /bugs/:bugId', function() {
   it('should return non empty json', function(done) {
-    request(app)
+    request(server)
       .delete('/api/bugs/0')
       .expect('Content-Type', /json/)
       .expect(200)
