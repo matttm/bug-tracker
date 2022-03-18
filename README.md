@@ -1,5 +1,7 @@
 # Bug Tracker
+
 Development Status: 🟢 Complete
+
 This is a full-stack JavaScript web application. Its frontend is written using ReactJS and Bootstrap. whereas the backend is an ExpressJS server that will be conneted to a MongoDB database.
 
 ## Running
